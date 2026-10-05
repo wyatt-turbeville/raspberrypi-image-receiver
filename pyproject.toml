@@ -1,0 +1,20 @@
+[project]
+name = "raspberrypi-image-receiver"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "wyatt-turbeville", email = "wyatt.turbeville@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "exif>=1.6.1",
+    "fastapi>=0.142.2",
+]
+
+[project.scripts]
+raspberrypi-image-receiver = "raspberrypi_image_receiver:main"
+
+[build-system]
+requires = ["uv_build>=0.12.22,<0.13.0"]
+build-backend = "uv_build"
