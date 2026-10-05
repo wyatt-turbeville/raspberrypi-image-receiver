@@ -1,1 +1,1 @@
-# raspberrypi-file-receiver
+# raspberrypi-image-receiver
