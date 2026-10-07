@@ -1,6 +1,6 @@
 import sqlite3
 
-db_path = 'my.db'
+db_path = 'turf_plot.db'
 
 sql_statements = [ 
     """CREATE TABLE IF NOT EXISTS camera (
