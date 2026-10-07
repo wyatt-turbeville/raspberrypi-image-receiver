@@ -1,1 +1,1 @@
-# raspberrypi-image-receiver
+# Device Setup Instructions
