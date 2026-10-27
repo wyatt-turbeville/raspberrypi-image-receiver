@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# Ensure script is run with sudo
-if [ "$EWD" != "0" ] && [ "$EUID" -ne 0 ]; then
+if [ "$EUID" -ne 0 ]; then
   echo "Please run with sudo: sudo ./install.sh"
   exit 1
 fi
