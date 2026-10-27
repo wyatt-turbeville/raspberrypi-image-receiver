@@ -1,6 +1,6 @@
 from fastapi import FastAPI, File, UploadFile, Form
-import datetime, os, shutil, sqlite3
-from exif import Image
+import datetime, os, shutil, connection
+from exif import Image 
 
 app = FastAPI()
 
@@ -22,6 +22,8 @@ async def recieve_upload_file(
     image.file.seek(0)
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(image.file, buffer)
+
+    connection.insertPictureData(cameraID, img_datetime, file_path, image.filename)
     
     return {
         "status": "success",
@@ -33,4 +35,8 @@ async def recieve_upload_file(
 
 if __name__ == "__main__":
     import uvicorn
+
+    connection.initTables()
+    connection.initRows()
+
     uvicorn.run("main:app", host="100.76.229.28", port=8000, reload=True)
