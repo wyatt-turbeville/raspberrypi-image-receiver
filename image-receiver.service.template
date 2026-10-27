@@ -1,0 +1,14 @@
+[Unit]
+Description=Custom service to run image receiving and cataloging web server over tailscale
+After=network.target tailscaled.service
+Requires=tailscaled.service
+
+[Service]
+Type=simple
+User=__USER__
+ExecStart=__INSTALL_DIR__/.venv/bin/python3 __INSTALL_DIR__/main.py
+WorkingDirectory=__INSTALL_DIR__
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
