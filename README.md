@@ -13,11 +13,11 @@
    a. git clone https://github.com/wyatt-turbeville/raspberrypi-image-receiver.git<br>
 5. Install the required libraries to a python virtual enviroment<br>
    In terminal:<br>
-   Create a python virtual environment for dependencies
+   Create a python virtual environment for dependencies<br>
    a. cd /directory/of/step/four<br>
    b. python3 -m venv .venv<br>
    c. source bin/scripts/activate<br>
-   Install libraries to the virtual environment
+   Install libraries to the virtual environment<br>
    d. pip install exif<br>
    e. pip install fastapi[standard]<br>
    f. pip install uvicorn<br>
