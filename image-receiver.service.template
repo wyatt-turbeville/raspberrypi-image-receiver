@@ -1,5 +1,5 @@
 [Unit]
-Description=Custom service to run image receiving and cataloging web server over tailscale
+Description=Custom service to run image web server over tailscale
 After=network.target tailscaled.service
 Requires=tailscaled.service
 
