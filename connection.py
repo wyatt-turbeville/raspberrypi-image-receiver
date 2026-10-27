@@ -13,7 +13,7 @@ sql_table_statements = [
             datetime DATETIME NOT NULL,
             path TEXT NOT NULL,
             name TEXT NOT NULL,
-            camera_id INTEGER NOT NULL,
+            camera_id INT NOT NULL,
             FOREIGN KEY (camera_id) REFERENCES camera (camera_id)
         );""",
 
@@ -21,6 +21,7 @@ sql_table_statements = [
             analysis_id INT PRIMARY KEY,
             type TEXT NOT NULL,
             result REAL NOT NULL,
+            image_id INT NOT NULL,
             FOREIGN KEY (image_id) REFERENCES image (image_id) ON DELETE CASCADE,
             UNIQUE (analysis_id, image_id)
         );"""
