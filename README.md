@@ -28,5 +28,6 @@
    There are multiple methods to accomplish this, such as cron or autostart.<br>
    In terminal:<br>
    a. cd /directory/of/step/four<br>
-   b. sudo install.sh<br>
+   b. chmod +x install.sh<br>
+   c. sudo ./install.sh<br>
    This shell script adds main.py as a systemd service to open every time the device is booted.<br>
