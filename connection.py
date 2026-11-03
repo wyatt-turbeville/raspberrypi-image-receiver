@@ -37,12 +37,6 @@ sql_row_statements = [
     """INSERT OR IGNORE INTO camera (camera_id, plot_angle) VALUES (7, 70)"""
 ]
 
-# TODO
-# Secondary Functions
-# 1. insert analysis data
-# 2. serve data for graph
-# 3. serve picture gallery
-
 def initTables():
     try:
         with sqlite3.connect(db_path) as conn:
@@ -97,3 +91,45 @@ def insertPictureData(camera_id, datetime, path, name):
     except sqlite3.OperationalError as e:
         print("Failed to insert image row: ", e)
 
+def insertAnalysisData(type, result, image_id):
+    try:
+        with sqlite3.connect(db_path) as conn:
+
+            conn.execute("PRAGMA foreign_keys = ON;")
+            
+            cursor = conn.cursor()
+
+            cursor.execute(
+                """
+                INSERT INTO analysis (type, result, image_id) VALUES (?, ?, ?)
+                """,
+                (type, result, image_id)
+            )
+
+            conn.commit()
+
+            print("Analysis row inserted successfully.")
+
+    except sqlite3.OperationalError as e:
+        print("Failed to insert analysis row: ", e)
+
+def countCameras():
+    try:
+        with sqlite3.connect(db_path) as conn:
+        
+                    conn.execute("PRAGMA foreign_keys = ON;")
+                    
+                    cursor = conn.cursor()
+        
+                    cursor.execute(
+                        """
+                        SELECT camera_id FROM camera
+                        """
+                    )
+        
+                    camera_ids = cursor.fetchall()
+                    print("Select camera_id successful.")
+                    return camera_ids
+
+    except sqlite3.OperationalError as e:
+            print("Failed to select camera_id from camera table: ", e)

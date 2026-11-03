@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Turf Image Directory</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='index_styles.css') }}">
+</head>
+<body class="layout">
+
+    <header>
+        <span class="left_spacer"></span>
+        <span class="directory_tab"><p class="tab_text">Directory</p></span>
+        <span class="folder_tab"><p class="tab_text">Folder</p></span>
+        <span class="search_tab"><p class="tab_text">Search</p></span>
+        <span class="right_spacer"></span>
+    </header>
+
+    <main class="folder_container">
+        {% for camera in camera_ids %}
+            <a href="/" class="folder_card">
+                <img src="{{ url_for('static', path='images/folder-icon.png') }}" alt="Folder Icon">
+                <p class="folder_caption">Plot {{ cam_id }}</p>
+            </a>
+        {% endfor %}
+    </main>
+
+    <footer>
+        <p>0 Folders, 0 Images</p>
+    </footer>
+
+</body>
+</html>
