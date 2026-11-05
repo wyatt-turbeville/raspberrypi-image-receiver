@@ -17,19 +17,26 @@ html, body {
 header {
     grid-area: header;
     display: flex;
-    padding-top: 10%;
+    padding-top: 5%;
+    background-color: #272727;
 }
-.left_spacer { flex: 0 0 25px; border-bottom: 5px solid black;}
+.left_spacer { flex: 0 0 20px; border-bottom: 2px solid black;}
+.directory_tab, .folder_tab, .search_tab {
+    flex: 0 0 120px;
+    border-bottom: 2px solid black;
+    text-align: center;
+}
 .directory_tab {
-    flex: 0 0 150px;
-    border: 5px solid black;
+    border: 2px solid black;
     border-bottom: none;
+    background-color: #3e3e3e;
 }
-.folder_tab { flex: 0 0 150px; border-bottom: 5px solid black;}
-.search_tab { flex: 0 0 150px; border-bottom: 5px solid black;}
-.right_spacer { flex-grow: 1; border-bottom: 5px solid black;}
+.right_spacer { flex-grow: 1; border-bottom: 2px solid black;}
 
-main { grid-area: main; }
+main { 
+    grid-area: main;
+    background-color: #3e3e3e;
+}
 .folder_container {
     width: 100%;
     display: flex;
@@ -40,5 +47,6 @@ main { grid-area: main; }
 footer { 
     grid-area: footer; 
     text-align: center;
-    padding: 20px;
+    padding: 10px;
+    background-color: #353535;
 }
