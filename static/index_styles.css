@@ -11,7 +11,6 @@ html, body {
         "main" 1fr
         "footer" auto
         / 1fr;
-    gap: 8px;
 }
 
 header {
@@ -20,21 +19,18 @@ header {
     padding-top: 3%;
     background-color: #272727;
 }
-.left_spacer { flex: 0 0 20px; border-bottom: 2px solid black;}
+.left_spacer { flex: 0 0 20px; }
 .directory_tab, .folder_tab, .search_tab {
     flex: 0 0 120px;
-    border-bottom: 2px solid black;
     text-align: center;
     font-family: sans-serif;
     color: white;
-    font-size: medium;
+    font-size: large;
 }
 .directory_tab {
-    border: 2px solid black;
-    border-bottom: none;
     background-color: #3e3e3e;
 }
-.right_spacer { flex-grow: 1; border-bottom: 2px solid black;}
+.right_spacer { flex-grow: 1; }
 
 main { 
     grid-area: main;
@@ -52,19 +48,20 @@ main {
     text-decoration: none;
 }
 .folder_icon {
-    width: 150px;
+    width: 75px;
 }
 .folder_caption {
     font-family: sans-serif;
     color: white;
     text-align: center;
-    font-size: small
+    font-size: medium;
+    margin: 0;
 }
 
 footer { 
     grid-area: footer; 
     text-align: center;
-    padding: 10px;
+    padding: 2px;
     background-color: #353535;
     font-family: sans-serif;
     color: white;
