@@ -40,16 +40,30 @@ async def recieve_upload_file(
     }
 
 @app.get("/", response_class=HTMLResponse)
-def home(request: Request):
+def directory(request: Request):
 
     camera_ids = connection.countCameras()
+    footer_count = connection.footerDisplay()
 
     context = {
         "request": request, 
-        "camera_ids": camera_ids
+        "camera_ids": camera_ids,
+        "footer_count": footer_count
     }
     
     return templates.TemplateResponse(request=request, name="index.html", context=context)
+
+@app.get("/folder")
+def folder(request: Request, id: int = None):
+
+    image_list = connection.folderList(id)
+
+    context = {
+        "request": request,
+        "image_list": image_list
+    }
+
+    return templates.TemplateResponse(request=request, name="folder.html", context=context)
 
 if __name__ == "__main__":
     import uvicorn

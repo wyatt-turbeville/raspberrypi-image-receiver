@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Turf Image Directory</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='index_styles.css') }}">
+</head>
+<body class="layout">
+
+    <header>
+        <span class="left_spacer"></span>
+        <a href="/" class="directory_tab">
+            <span >Directory</span>
+        </a>
+        <span class="folder_tab">Folder</span>
+        <a href="/search" class="search_tab">
+            <span>Search</span>
+        </a>
+        <span class="right_spacer"></span>
+    </header>
+
+    <main class="row_container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in image_list %}
+                    <tr></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p class="footer_caption">0 Images</p>
+    </footer>
+
+</body>
+</html>

@@ -74,7 +74,6 @@ def insertPictureData(camera_id, datetime, path, name):
         with sqlite3.connect(db_path) as conn:
 
             conn.execute("PRAGMA foreign_keys = ON;")
-
             cursor = conn.cursor()
 
             cursor.execute(
@@ -96,7 +95,6 @@ def insertAnalysisData(type, result, image_id):
         with sqlite3.connect(db_path) as conn:
 
             conn.execute("PRAGMA foreign_keys = ON;")
-            
             cursor = conn.cursor()
 
             cursor.execute(
@@ -117,19 +115,72 @@ def countCameras():
     try:
         with sqlite3.connect(db_path) as conn:
         
-                    conn.execute("PRAGMA foreign_keys = ON;")
-                    
-                    cursor = conn.cursor()
-        
-                    cursor.execute(
-                        """
-                        SELECT camera_id FROM camera
-                        """
-                    )
-        
-                    camera_ids = [row[0] for row in cursor.fetchall()]
-                    print("Select camera_id successful.")
-                    return camera_ids
+            conn.execute("PRAGMA foreign_keys = ON;")
+            cursor = conn.cursor()
+
+            cursor.execute(
+                """
+                SELECT camera_id FROM camera
+                """
+            )
+
+            camera_ids = [row[0] for row in cursor.fetchall()]
+            print("Select camera_id successful.")
+            return camera_ids
 
     except sqlite3.OperationalError as e:
-            print("Failed to select camera_id from camera table: ", e)
+        print("Failed to select camera_id from camera table: ", e)
+
+def footerDisplay():
+    try:
+        with sqlite3.connect(db_path) as conn:
+
+            conn.execute("PRAGMA foreign_keys = ON;")
+            cursor = conn.cursor()
+
+            cursor.execute(
+                """
+                SELECT COUNT(*) FROM camera
+                """
+            )
+            camera_count = cursor.fetchone()[0]
+
+            cursor.execute(
+                """
+                SELECT COUNT(*) FROM image
+                """
+            )
+            image_count = cursor.fetchone()[0]
+
+            count_list = {
+                "camera_count": camera_count,
+                "image_count": image_count
+            }
+
+            print("Select count successful.")
+            return count_list
+            
+    except sqlite3.OperationalError as e:
+        print("Failed to select count from camera table: ", e)
+
+def folderList(camera_id):
+    try:
+        with sqlite3.connect(db_path) as conn:
+
+            conn.execute("PRAGMA foreign_keys = ON;")
+            cursor = conn.cursor()
+
+            cursor.execute(
+                """
+                SELECT image_id, name FROM image WHERE camera_id = ?
+                """,
+                (camera_id)
+            )
+
+            images = cursor.fetchall()
+
+            print("Select image_id, name successful.")
+            return images
+
+    except sqlite3.OperationalError as e:
+        print("Failed to select image_id, name from image table: ", e)
