@@ -174,7 +174,7 @@ def folderList(camera_id):
                 """
                 SELECT image_id, name FROM image WHERE camera_id = ?
                 """,
-                (camera_id)
+                (camera_id,)
             )
 
             images = cursor.fetchall()

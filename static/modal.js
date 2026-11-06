@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalImg = document.getElementById("modalImage");
     const closeBtn = document.querySelector(".close-btn");
 
-    document.querySelectorAll(".clickable-row").forEach(row => {
+    document.querySelectorAll(".click-row").forEach(row => {
         row.addEventListener("click", async () => {
             const id = row.getAttribute("data-id");
-            modalImg.src = `/image-path?{id}`;
+            modalImg.src = `/image-path?${id}`;
             modal.style.display = "flex";
         });
     });
