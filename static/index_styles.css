@@ -25,7 +25,8 @@ header {
     text-align: center;
     font-family: sans-serif;
     color: white;
-    font-size: xx-large;
+    font-size: large;
+    padding-top: 5px;
 }
 .directory_tab {
     background-color: #3e3e3e;
