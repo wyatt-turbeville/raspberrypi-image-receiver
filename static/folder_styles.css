@@ -47,24 +47,30 @@ main {
 }
 table {
     padding-top: 32px;
+    padding-left: 10px;
+    padding-right: 10px;
     color: white;
+    font-family: sans-serif;
 }
 th {
     text-align: left;
+    font-size: large;
 }
 tr {
     height: 50px;
-    padding-left: 10px;
-    padding-right: 10px;
+}
+td {
     border-bottom: 1px solid #353535;
 }
 .img_cell {
     width: 50px;
+    text-align: center;
+    vertical-align: middle;
 }
-.clickable-row {
+.click_row {
     cursor: pointer;
 }
-.clickable-row:hover {
+.click_row:hover {
     background-color: #444;
 }
 .photo_icon {
