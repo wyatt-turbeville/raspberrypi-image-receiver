@@ -101,7 +101,7 @@ td {
     text-align: center;
     position: relative;
 }
-.modalImage {
+.modal-image {
     max-height: 75vh;
     max-width: 100%;
     padding-top: 15px;
