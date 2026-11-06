@@ -19,7 +19,7 @@
     <main class="folder_container">
         {% for camera in camera_ids %}
             <a href="/" class="folder_card">
-                <img src="{{ url_for('static', path='images/folder-icon.png') }}" alt="Folder Icon">
+                <img class="folder_icon" src="{{ url_for('static', path='images/folder-icon.png') }}" alt="Folder Icon">
                 <p class="folder_caption">Plot {{ cam_id }}</p>
             </a>
         {% endfor %}
