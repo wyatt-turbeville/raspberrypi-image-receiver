@@ -70,7 +70,7 @@ def folder(request: Request, id: int = None):
 @app.get("/image-path")
 def imagePath(request: Request, id: int = None):
 
-    imagePath = connection.imagePath(id)
+    imagePath = connection.dbImagePath(id)
 
     return FileResponse(imagePath)
 

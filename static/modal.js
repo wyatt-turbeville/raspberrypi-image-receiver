@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".click_row").forEach(row => {
         row.addEventListener("click", async () => {
             const id = row.getAttribute("data-id");
-            modalImg.src = `/image-path?${id}`;
+            modalImg.src = `/image-path?id=${id}`;
             modal.style.display = "flex";
         });
     });
