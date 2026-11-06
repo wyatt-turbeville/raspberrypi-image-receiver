@@ -184,3 +184,25 @@ def folderList(camera_id):
 
     except sqlite3.OperationalError as e:
         print("Failed to select image_id, name from image table: ", e)
+
+def imagePath(image_id):
+    try:
+        with sqlite3.connect(db_path) as conn:
+
+            conn.execute("PRAGMA foreign_keys = ON;")
+            cursor = conn.cursor()
+
+            cursor.execute(
+                """
+                SELECT path FROM image WHERE image_id = ?
+                """,
+                (image_id)
+            )
+
+            imagePath = cursor.fetchone()[0]
+
+            print("Select path successful.")
+            return imagePath
+
+    except sqlite3.OperationalError as e:
+        print("Failed to select path from image table: ", e)

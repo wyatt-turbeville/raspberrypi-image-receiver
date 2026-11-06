@@ -1,12 +1,14 @@
 from fastapi import FastAPI, File, UploadFile, Form, Request
 import datetime, os, shutil, connection
 from exif import Image
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 app = FastAPI()
 
+pictures_dir = os.path.expanduser("~/Pictures")
+app.mount("/pics", StaticFiles(directory=pictures_dir), name="pictures")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
@@ -64,6 +66,13 @@ def folder(request: Request, id: int = None):
     }
 
     return templates.TemplateResponse(request=request, name="folder.html", context=context)
+
+@app.get("/image-path")
+def imagePath(request: Request, id: int = None):
+
+    imagePath = connection.imagePath(id)
+
+    return FileResponse(imagePath)
 
 if __name__ == "__main__":
     import uvicorn

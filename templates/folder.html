@@ -29,15 +29,27 @@
             </thead>
             <tbody>
                 {% for row in image_list %}
-                    <tr></tr>
+                    <tr class="click_row" data-id="{{ row[0] }}">
+                        <td><img class="photo_icon" src="{{ url_for('static', path='images/photo-icon.png') }}" alt="Photo Icon"></td>
+                        <td>{{ row[1] }}</td>
+                    </tr>
                 {% endfor %}
             </tbody>
         </table>
+
+        <div id="imageModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <img id="modalImage" src="" alt="Popup View" style="max-width: 100%;">
+            </div>
+        </div>
+
     </main>
 
     <footer>
-        <p class="footer_caption">0 Images</p>
+        <p class="footer_caption">{{ image_list|length }} Images</p>
     </footer>
 
+    <script src="{{ url_for('static', path='modal.js') }}"></script>
 </body>
 </html>
