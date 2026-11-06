@@ -127,7 +127,7 @@ def countCameras():
                         """
                     )
         
-                    camera_ids = cursor.fetchall()
+                    camera_ids = [row[0] for row in cursor.fetchall()]
                     print("Select camera_id successful.")
                     return camera_ids
 
