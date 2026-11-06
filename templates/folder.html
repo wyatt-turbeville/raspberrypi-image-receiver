@@ -30,7 +30,9 @@
             <tbody>
                 {% for row in image_list %}
                     <tr class="click_row" data-id="{{ row[0] }}">
-                        <td><img class="photo_icon" src="{{ url_for('static', path='images/photo-icon.png') }}" alt="Photo Icon"></td>
+                        <td class="img_cell">
+                            <img class="photo_icon" src="{{ url_for('static', path='images/photo-icon.png') }}" alt="Photo Icon">
+                        </td>
                         <td>{{ row[1] }}</td>
                     </tr>
                 {% endfor %}

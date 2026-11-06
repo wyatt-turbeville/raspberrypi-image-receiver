@@ -45,14 +45,30 @@ main {
     grid-template-columns: 1fr;
     gap: 8px;
 }
+table {
+    padding-top: 32px;
+    color: white;
+}
+th {
+    text-align: left;
+}
+tr {
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom: 1px solid #353535;
+}
+.img_cell {
+    width: 50px;
+}
 .clickable-row {
     cursor: pointer;
 }
 .clickable-row:hover {
-    background-color: #444; /* Highlights row on hover */
+    background-color: #444;
 }
 .photo_icon {
-    width: 50px;
+    width: 25px;
 }
 
 .modal {
