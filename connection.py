@@ -206,3 +206,30 @@ def dbImagePath(image_id):
 
     except sqlite3.OperationalError as e:
         print("Failed to select path from image table: ", e)
+
+def tenPull():
+    try:
+        with sqlite3.connect(db_path) as conn:
+
+            conn.execute("PRAGMA foreign_keys = ON;")
+            cursor = conn.cursor()
+
+            cursor.execute(
+                """
+                SELECT p.image_id, p.path
+                FROM image p
+                WHERE NOT EXISTS (
+                    SELECT 1
+                    FROM analysis c
+                    WHERE c.image_id = p.image_id
+                ) LIMIT 10;
+                """
+            )
+
+            images = cursor.fetchall()
+
+            print("Select 10 successful.")
+            return images
+
+    except sqlite3.OperationalError as e:
+        print("Failed to select 10 from image table: ", e)

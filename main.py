@@ -1,5 +1,5 @@
 from fastapi import FastAPI, File, UploadFile, Form, Request
-import datetime, os, shutil, connection
+import datetime, os, shutil, connection, analysis
 from exif import Image
 from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -41,6 +41,14 @@ async def recieve_upload_file(
         "saved_path": file_path
     }
 
+def process_image(cameraID, file_path):
+
+    values = analysis.analyze_image(file_path)
+    return values
+
+async def print_values(values):
+    print(values)
+
 @app.get("/", response_class=HTMLResponse)
 def directory(request: Request):
 
@@ -79,5 +87,7 @@ if __name__ == "__main__":
 
     connection.initTables()
     connection.initRows()
+
+    ort_session = analysis.load_model("turf_model.onnx")
 
     uvicorn.run("main:app", host="100.76.229.28", port=8000, reload=True)
