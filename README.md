@@ -22,7 +22,7 @@
    e. pip install fastapi[standard]<br>
    f. pip install uvicorn<br>
    g. pip install python-multipart<br>
-   h. pip install cv2<br>
+   h. pip install opencv-python<br>
    i. pip install numpy<br>
    j. pip install onnxruntime<br>
    Some of these libraries may come preinstalled on some OS versions.<br>
