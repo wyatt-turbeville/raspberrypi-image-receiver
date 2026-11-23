@@ -22,8 +22,11 @@
    e. pip install fastapi[standard]<br>
    f. pip install uvicorn<br>
    g. pip install python-multipart<br>
-   These libraries may come preinstalled on some OS versions.<br>
-6. Schedule the program as a system service (optional)<br>
+   h. pip install cv2<br>
+   i. pip install numpy<br>
+   j. pip install onnxruntime<br>
+   Some of these libraries may come preinstalled on some OS versions.<br>
+7. Schedule the program as a system service (optional)<br>
    The concept here is to have the program continue running in the event the device gets interrupted in some way.<br>
    There are multiple methods to accomplish this, such as cron or autostart.<br>
    In terminal:<br>
